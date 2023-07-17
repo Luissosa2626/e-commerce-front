@@ -8,11 +8,11 @@ const Title = styled.h2`
     font-weight: normal;
 `;
 
-export default function NewProducts({products}) {   //products por que el porp en el index.js se llama products
+export default function NewProducts({products, wishedProducts}) {   //products por que el porp en el index.js se llama products
     return (
         <Center>
             <Title>New Arrivals</Title>
-            <ProductsGrid products={products} />
+            <ProductsGrid products={products} wishedProducts={wishedProducts}/>
         </Center>
     )
 }

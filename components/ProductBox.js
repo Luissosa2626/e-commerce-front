@@ -3,10 +3,13 @@ import Button from "@/components/Button"
 import CartIcon from "@/components/icons/Cart"
 import Link from "next/link"
 import { CartContext } from "@/components/CartContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import {ButtonStyle} from "@/components/Button";
 import {primary} from "@/lib/colors";
 import FlyingButton from "@/components/FlyingButton";
+import HeartOutlineIcon from "@/components/icons/HeartOutineIcon";
+import HeartSolidIcon from "@/components/icons/HeartSolidIcon";
+import axios from "axios";
 
 const ProductWrapper = styled.div`
     button{
@@ -66,12 +69,52 @@ const Price = styled.div`
     }
 `;
 
-export default function ProductBox({_id, title, description, price, images}) {
+const WishListButton = styled.button`
+    border: 0;
+    width: 40px !important;
+    height: 40px;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    cursor: pointer;
+    ${props => props.wished ? `
+    color: red;
+    ` : `
+    color: black;
+    `}
+    svg{
+        width: 16px;
+    }
+`;
+
+export default function ProductBox({_id, title, description, price, images, wished=false, onRemoveFromWishList=()=>{}}) {
     const url = '/product/'+_id;
+    const [isWished, setIsWished] = useState(wished)
+
+    function addToWishList(e) {
+        e.preventDefault()
+        e.stopPropagation()
+        const nextValue = !isWished
+        if(nextValue === false && onRemoveFromWishList) {
+            onRemoveFromWishList(_id)
+        }
+        axios.post('/api/wishList', {
+            product: _id
+        }).then(() => {})
+        setIsWished(nextValue)
+        // setIsWished(prev => !prev)  //Toggle
+
+    }
+
     return (
         <ProductWrapper>
             <WhiteBox href={url}>
                 <div>
+                    <WishListButton wished={isWished} onClick={addToWishList}>
+                        {isWished ? <HeartSolidIcon/> : <HeartOutlineIcon/>}
+                    </WishListButton>
                     <img src={images?.[0]} alt="ProductBox test"/>
                 </div>
             </WhiteBox>
