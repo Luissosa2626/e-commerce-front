@@ -4,7 +4,7 @@ export const CartContext = createContext({})
 
 export function CartContextProvider({children}) {
 
-    // Cuando next renderiza no encuentra el lcoalStorage definido, entonces hago esto
+    // Cuando next renderiza no encuentra el lcoalStorage definido, esto:
     const ls = typeof window !== "undefined" ? window.localStorage : null
     const [cartProducts, setCartProducts] = useState([])
 

@@ -65,8 +65,8 @@ ${props => props.size === 'l' && css`
     `}
 `;
 
-// Con las props le doy estilos especificos que se pueden pasar por parametros y solo cambian un componente que tenga ese parametro
-//En Feaature.js hay un boton con la prop size="l" ahi se aplicara
+// props - aplico estilos especificos y pasarlo por parametros y solo cambian un componente que tenga ese parametro
+//prop size="l" en Feature.js
 const StyledButton = styled.button`
     ${ButtonStyle}
 `;

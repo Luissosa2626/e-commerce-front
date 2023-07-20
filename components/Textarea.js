@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-const StyledInput = styled.input`
+const StyledArea = styled.textarea`
     width: 100%;
     padding: 5px;
     margin-bottom: 5px;
@@ -9,7 +9,6 @@ const StyledInput = styled.input`
     box-sizing: border-box;
     font-family: inherit;
 `;
-
-export default function Input(props) {
-    return <StyledInput {...props}/>
+export default function Textarea(props) {
+    return <StyledArea {...props}/>
 }

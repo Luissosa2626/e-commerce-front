@@ -8,7 +8,7 @@ const Title = styled.h2`
     font-weight: normal;
 `;
 
-export default function NewProducts({products, wishedProducts}) {   //products por que el porp en el index.js se llama products
+export default function NewProducts({products, wishedProducts}) {   //products por que el prop en el index.js
     return (
         <Center>
             <Title>New Arrivals</Title>

@@ -11,6 +11,7 @@ import CartIcon from "@/components/icons/Cart";
 import { CartContext } from "@/components/CartContext";
 import { useContext } from "react";
 import FlyingButton from "@/components/FlyingButton";
+import ProductReviews from "@/components/ProductReviews"
 
 
 const ColWrapper = styled.div`
@@ -34,7 +35,6 @@ const Price = styled.span`
 `;
 
 export default function ProductPage({product}) {
-    const {addProduct} = useContext(CartContext)
     return(
         <>
         <Header/>
@@ -60,6 +60,7 @@ export default function ProductPage({product}) {
                     </PriceRow>
                 </div>
             </ColWrapper>
+            <ProductReviews product={product}/>
         </Center>
         </>
     )

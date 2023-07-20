@@ -6,7 +6,6 @@ import { CartContext } from "@/components/CartContext";
 import BarsIcon from "@/components/icons/Bars"
 import SearchIcon from "@/components/icons/SearchIcon"
 
-// Creo la variable y sustituyo el nombre. EJ: Header, por StyledHeader en el HTML
 const StyledHeader = styled.header`
   background-color: #222;
   position: sticky;
@@ -90,6 +89,10 @@ const SideIcons = styled.div`
   }
 `;
 
+const Name = styled.span`
+  color: #6B8E23;
+`;
+
 export default function Header() {
     const {cartProducts} = useContext(CartContext);
     const [mobileNavActive,setMobileNavActive] = useState(false);
@@ -97,7 +100,10 @@ export default function Header() {
         <StyledHeader>
             <Center>
                 <Wrapper>
-                    <Logo href={'/'}>Ecommerce</Logo>   {/*componente Link */}
+                    <Logo href={'/'}>
+                    <Name>Hey</Name>
+                        Lisen
+                      </Logo>   {/*componente Link */}
                     <StyledNav mobileNavActive={mobileNavActive}>
                         <NavLink href={'/'}>Home</NavLink>
                         <NavLink href={'/products'}>All products</NavLink>
