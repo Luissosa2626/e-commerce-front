@@ -61,7 +61,7 @@ export default function SearchPage() {
                     placeholder="Search for products..."/>
             </InputWrapper>
                 {!isLoading && phrase !== '' && products.length === 0 && (
-                    <h2>No products found for "{phrase}"</h2>
+                    <h2>No products found for &quot;{phrase}&quot;</h2>
                 )}
                 {isLoading && (
                     <Spinner fullWidth={true}/>

@@ -107,10 +107,10 @@ export default function ProductReviews({product}) {
               <Spinner fullWidth={true} />
             )}
             {reviews.length === 0 && (
-              <p>No reviews :(</p>
+              <p>No reviews.</p>
             )}
             {reviews.length > 0 && reviews.map(review => (
-              <ReviewWrapper>
+              <ReviewWrapper key={review._id}>
                 <ReviewHeader>
                   <StarsRating size={'sm'} disabled={true} defaultHowMany={review.stars} />
                   <time>{(new Date(review.createdAt)).toLocaleString('sv-SE')}</time>
