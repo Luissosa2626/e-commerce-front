@@ -80,7 +80,7 @@ const ContentWrapper = styled.div`
 `;
 
 export default function Feature({product}) {
-    return (
+{product && (
         <Bg>
             <Center>
                 <ColumnsWrapper>
@@ -111,5 +111,5 @@ export default function Feature({product}) {
                 </ColumnsWrapper>
             </Center>
         </Bg>
-    )
+    )}
 }
