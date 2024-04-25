@@ -1,38 +1,43 @@
-import styled from "styled-components";
-import {ButtonStyle} from "@/components/Button";
-import {primary} from "@/lib/colors";
-import {CartContext} from "@/components/CartContext";
-import {useContext, useEffect, useRef, useState} from "react";
+import styled from 'styled-components';
+import { ButtonStyle } from '@/components/Button';
+import { colors } from '@/lib/colors';
+import { CartContext } from '@/components/CartContext';
+import { useContext, useEffect, useRef, useState } from 'react';
 
 const FlyingButtonWrapper = styled.div`
-  button{
+  button {
     ${ButtonStyle};
-    ${props => props.main ? `
-      background-color: ${primary};
+    ${(props) =>
+      props.main
+        ? `
+      background-color: ${colors.flyingButton};
       color:white;
-    ` : `
+    `
+        : `
       background-color: transparent;
-      border: 1px solid ${primary};
-      color:${primary};
+      border: 1px solid ${colors.flyingButton};
+      color:${colors.flyingButton};
     `}
-    ${props => props.white && `
+    ${(props) =>
+      props.white &&
+      `
       background-color: white;
       border: 1px solid white;
       font-weight:500;
     `}
   }
-  @keyframes fly{
-    100%{
-      top:0;
-      left:65%;
+  @keyframes fly {
+    100% {
+      top: 0;
+      left: 65%;
       opacity: 0;
-      display:none;
+      display: none;
       max-width: 50px;
       max-height: 50px;
     }
   }
-  img{
-    display:none;
+  img {
+    display: none;
     max-width: 100px;
     max-height: 100px;
     opacity: 1;
@@ -44,12 +49,12 @@ const FlyingButtonWrapper = styled.div`
 `;
 
 export default function FlyingButton(props) {
-  const {addProduct} = useContext(CartContext);
+  const { addProduct } = useContext(CartContext);
   const imgRef = useRef();
   function sendImageToCart(ev) {
     imgRef.current.style.display = 'inline-block';
-    imgRef.current.style.left = (ev.clientX-50) + 'px';
-    imgRef.current.style.top = (ev.clientY-50) + 'px';
+    imgRef.current.style.left = ev.clientX - 50 + 'px';
+    imgRef.current.style.top = ev.clientY - 50 + 'px';
     setTimeout(() => {
       imgRef.current.style.display = 'none';
     }, 1000);
@@ -70,9 +75,10 @@ export default function FlyingButton(props) {
       <FlyingButtonWrapper
         white={props.white}
         main={props.main}
-        onClick={() => addProduct(props._id)}>
+        onClick={() => addProduct(props._id)}
+      >
         <img src={props.src} alt="" ref={imgRef} />
-        <button onClick={ev => sendImageToCart(ev)} {...props} />
+        <button onClick={(ev) => sendImageToCart(ev)} {...props} />
       </FlyingButtonWrapper>
     </>
   );
