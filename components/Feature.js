@@ -84,9 +84,7 @@ export default function Featured({ product }) {
             <div>
               <RevealWrapper origin={'left'} delay={0}>
                 <ContentWrapper>
-                  <Title>
-                    <h2>{product.title}</h2>
-                  </Title>
+                  <Title>{product.title}</Title>
                   <Desc>{product.description}</Desc>
                   <ButtonsWrapper>
                     <ButtonLink
