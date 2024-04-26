@@ -14,8 +14,8 @@ const Bg = styled.div`
 const Title = styled.h1`
   margin: 0;
   font-weight: normal;
-  color: ${colors.text};
-  text-shadow: 3px 3px 5px ${colors.secondary}, 6px 6px 5px ${colors.title},
+  color: ${colors.secondary};
+  text-shadow: 3px 3px 5px ${colors.text}, 3px 3px 5px ${colors.title},
     1px 1px 5px ${colors.text};
   font-size: 1.5rem;
   @media screen and (min-width: 768px) {

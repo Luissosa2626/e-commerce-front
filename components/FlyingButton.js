@@ -15,8 +15,8 @@ const FlyingButtonWrapper = styled.div`
     `
         : `
       background-color: transparent;
-      border: 1px solid ${colors.flyingButton};
-      color:${colors.flyingButton};
+      border: 1px solid ${colors.FlyingButton};
+      color:${colors.secondary};
     `}
     ${(props) =>
       props.white &&
