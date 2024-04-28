@@ -1,18 +1,21 @@
-import styled from "styled-components";
-import Center from '@/components/Center'
-import ProductsGrid from "@/components/ProductsGrid";
+import styled from 'styled-components';
+import Center from '@/components/Center';
+import ProductsGrid from '@/components/ProductsGrid';
 
 const Title = styled.h2`
-    font-size: 2rem;
-    margin: 30px 0 20px;
-    font-weight: normal;
+  font-size: 2rem;
+  margin: 30px 0 20px;
+  font-weight: normal;
 `;
+export default function NewProducts({ products, wishedProducts }) {
+  //products por que el prop en el index.js
 
-export default function NewProducts({products, wishedProducts}) {   //products por que el prop en el index.js
-    return (
-        <Center>
-            <Title>New Arrivals</Title>
-            <ProductsGrid products={products} wishedProducts={wishedProducts}/>
-        </Center>
-    )
+  return (
+    <Center>
+      <Title variants="Title" whileHover="hover" transition="transition">
+        New Arrivals
+      </Title>
+      <ProductsGrid products={products} wishedProducts={wishedProducts} />
+    </Center>
+  );
 }

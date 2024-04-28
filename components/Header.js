@@ -19,6 +19,15 @@ const Logo = styled(Link)`
   text-decoration: none;
   position: relative;
   z-index: 3;
+
+  /* Variant styles */
+  &:hover {
+    background:transparent;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,
+      0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;,   
+  }
+  /* Transition properties */
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 `;
 
 const Wrapper = styled.div`
@@ -28,21 +37,19 @@ const Wrapper = styled.div`
 `;
 
 const StyledNav = styled.nav`
-  ${(props) =>
-    props.mobileNavActive
-      ? `
-    display: block;
-  `
-      : `
-    display: none;
-  `}
+  opacity: ${(props) => (props.mobile_nav_active === true ? '1' : '0')};
+  pointer-events: ${(props) =>
+    props.mobile_nav_active === true ? 'auto' : 'none'};
   gap: 15px;
   position: fixed;
+  background: ${colors.secondary};
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 70px 20px 20px;
+  transition: opacity 0.3s ease; /* Add transition here */
+
   @media screen and (min-width: 768px) {
     display: flex;
     position: static;
@@ -62,6 +69,14 @@ const NavLink = styled(Link)`
   @media screen and (min-width: 768px) {
     padding: 0;
   }
+
+  /* Variant styles */
+  &:hover {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,
+      0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;,   
+  }
+  /* Transition properties */
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 `;
 
 const NavButton = styled.button`
@@ -93,12 +108,12 @@ const SideIcons = styled.div`
 `;
 
 const Name = styled.span`
-  color: ${colors.title};
+  color: ${colors.text};
 `;
 
 export default function Header() {
   const { cartProducts } = useContext(CartContext);
-  const [mobileNavActive, setMobileNavActive] = useState(false);
+  const [mobile_nav_active, setMobileNavActive] = useState(false);
   return (
     <StyledHeader>
       <Center>
@@ -108,7 +123,7 @@ export default function Header() {
             Lisen
           </Logo>{' '}
           {/*componente Link */}
-          <StyledNav mobileNavActive={mobileNavActive}>
+          <StyledNav mobile_nav_active={mobile_nav_active}>
             <NavLink href={'/'}>Home</NavLink>
             <NavLink href={'/products'}>All products</NavLink>
             <NavLink href={'/categories'}>Categories</NavLink>
