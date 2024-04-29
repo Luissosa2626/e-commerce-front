@@ -12,9 +12,7 @@ export default function NewProducts({ products, wishedProducts }) {
 
   return (
     <Center>
-      <Title variants="Title" whileHover="hover" transition="transition">
-        New Arrivals
-      </Title>
+      <Title>New Arrivals</Title>
       <ProductsGrid products={products} wishedProducts={wishedProducts} />
     </Center>
   );

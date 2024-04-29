@@ -37,8 +37,8 @@ const Wrapper = styled.div`
 `;
 
 const StyledNav = styled.nav`
-  background: ${(props) =>
-    props.mobile_nav_active === true ? `${colors.secondary};` : 'none'};
+  display: ${(props) => (props.mobile_nav_active === true ? 'block' : 'none')};
+  background: ${colors.secondary};
   gap: 15px;
   position: fixed;
   top: 0;
@@ -47,7 +47,7 @@ const StyledNav = styled.nav`
   right: 0;
   padding: 70px 20px 20px;
 
-  transition: background 0.3s ease; /* Add transition here */
+  transition: background 3s ease; /* Add transition here */
 
   @media screen and (min-width: 768px) {
     display: flex;
