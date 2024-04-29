@@ -37,17 +37,17 @@ const Wrapper = styled.div`
 `;
 
 const StyledNav = styled.nav`
-  display: ${(props) => (props.mobile_nav_active === true ? 'block' : 'none')};
+  background: ${(props) =>
+    props.mobile_nav_active === true ? `${colors.secondary};` : 'none'};
   gap: 15px;
   position: fixed;
-  background: ${colors.secondary};
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 70px 20px 20px;
 
-  transition: opacity 0.3s ease; /* Add transition here */
+  transition: background 0.3s ease; /* Add transition here */
 
   @media screen and (min-width: 768px) {
     display: flex;
