@@ -37,9 +37,7 @@ const Wrapper = styled.div`
 `;
 
 const StyledNav = styled.nav`
-  opacity: ${(props) => (props.mobile_nav_active === true ? '1' : '0')};
-  pointer-events: ${(props) =>
-    props.mobile_nav_active === true ? 'auto' : 'none'};
+  display: ${(props) => (props.mobile_nav_active === true ? 'block' : 'none')};
   gap: 15px;
   position: fixed;
   background: ${colors.secondary};
@@ -48,6 +46,7 @@ const StyledNav = styled.nav`
   left: 0;
   right: 0;
   padding: 70px 20px 20px;
+
   transition: opacity 0.3s ease; /* Add transition here */
 
   @media screen and (min-width: 768px) {
